@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author xbbkff6
+ * @author Rajes
  */
 
 @Entity

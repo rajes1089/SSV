@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author xbbkff6
+ * @author Rajes
  */
 @Entity
 @Table(name = "DEMO_ORDER_ITEMS")

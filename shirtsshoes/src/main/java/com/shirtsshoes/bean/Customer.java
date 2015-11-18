@@ -18,14 +18,13 @@ import javax.persistence.Table;
 
 /**
  *
- * @author xbbkff6
+ * @author Rajes
  */
 @Entity
 @Table(name = "DEMO_CUSTOMERS")
 public class Customer implements Serializable {
     
     /**
-	 * Test
 	 */
 	private static final long serialVersionUID = -1359841657571894089L;
 

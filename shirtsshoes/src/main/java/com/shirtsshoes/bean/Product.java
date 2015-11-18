@@ -23,7 +23,7 @@ import org.hibernate.annotations.Type;
 
 /**
  *
- * @author xbbkff6
+ * @author Rajes
  */
 @Entity
 @Table(name = "DEMO_PRODUCT_INFO")
