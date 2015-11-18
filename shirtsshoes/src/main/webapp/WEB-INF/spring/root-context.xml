@@ -14,7 +14,7 @@
 	<bean id="oracleDatasource"  class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
         <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-        <property name="username" value="rajes"/>
+        <property name="username" value="kart"/>
         <property name="password" value="app"/>
         <property name="maxTotal" value="1"/>
     </bean>
