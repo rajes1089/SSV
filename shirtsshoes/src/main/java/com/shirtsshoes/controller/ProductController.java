@@ -42,13 +42,13 @@ public class ProductController {
 		return "redirect:/product";
 	}
 	
-	@RequestMapping(value="product/{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/product/{id}",method=RequestMethod.GET)
 	public String editProduct(@PathVariable int id,Model model){
 		model.addAttribute("product",productService.getProduct(id));
 		return "product-detail";
 	}
 	
-	@RequestMapping(value="product/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="/product/{id}",method=RequestMethod.POST)
 	public String updateProduct(Product product,BindingResult result){
 		product.setLastUpdate(new Date(new java.util.Date().getTime()));
 		productService.updateProduct(product);
@@ -56,7 +56,7 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping("product/{id}/delete")
+	@RequestMapping("/product/{id}/delete")
 	public String deleteProduct(@PathVariable int id){
 		productService.deleteProduct(id);
 		return "redirect:/product";
