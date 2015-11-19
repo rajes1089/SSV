@@ -16,12 +16,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Rajes
  */
 @Entity
 @Table(name = "DEMO_CUSTOMERS")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="customer")
 public class Customer implements Serializable {
     
     /**
@@ -66,17 +70,109 @@ public class Customer implements Serializable {
     
     @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
     private Set<Order> orders = new HashSet<Order>();
+    
+    
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((creditLimit == null) ? 0 : creditLimit.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((orders == null) ? 0 : orders.hashCode());
+		result = prime * result + ((phoneNumber1 == null) ? 0 : phoneNumber1.hashCode());
+		result = prime * result + ((phoneNumber2 == null) ? 0 : phoneNumber2.hashCode());
+		result = prime * result + ((postalCode == null) ? 0 : postalCode.hashCode());
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		result = prime * result + ((streetAddress1 == null) ? 0 : streetAddress1.hashCode());
+		result = prime * result + ((streetAddress2 == null) ? 0 : streetAddress2.hashCode());
+		return result;
+	}
 
-    public Set<Order> getOrders() {
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (creditLimit == null) {
+			if (other.creditLimit != null)
+				return false;
+		} else if (!creditLimit.equals(other.creditLimit))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (id != other.id)
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (orders == null) {
+			if (other.orders != null)
+				return false;
+		} else if (!orders.equals(other.orders))
+			return false;
+		if (phoneNumber1 == null) {
+			if (other.phoneNumber1 != null)
+				return false;
+		} else if (!phoneNumber1.equals(other.phoneNumber1))
+			return false;
+		if (phoneNumber2 == null) {
+			if (other.phoneNumber2 != null)
+				return false;
+		} else if (!phoneNumber2.equals(other.phoneNumber2))
+			return false;
+		if (postalCode == null) {
+			if (other.postalCode != null)
+				return false;
+		} else if (!postalCode.equals(other.postalCode))
+			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
+		if (streetAddress1 == null) {
+			if (other.streetAddress1 != null)
+				return false;
+		} else if (!streetAddress1.equals(other.streetAddress1))
+			return false;
+		if (streetAddress2 == null) {
+			if (other.streetAddress2 != null)
+				return false;
+		} else if (!streetAddress2.equals(other.streetAddress2))
+			return false;
+		return true;
+	}
+
+	public Set<Order> getOrders() {
         return orders;
     }
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
-
-    
-
    
     public int getId() {
         return id;

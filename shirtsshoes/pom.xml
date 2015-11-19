@@ -62,6 +62,19 @@
 			<artifactId>ojdbc</artifactId>
 			<version>14</version>
 		</dependency>
+		
+		 <!-- EHCache Core APIs -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.9</version>
+        </dependency>
+        <!-- Hibernate EHCache API -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
 				
 		<!-- AspectJ -->
 		<dependency>

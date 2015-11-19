@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/product/add",method=RequestMethod.POST)
-	public String addNewProduct(@Valid Product product,BindingResult result){
+	public String addNewProduct(@ModelAttribute("product") @Valid Product product,BindingResult result){
 		
 		if(result.hasErrors()) 
 			return "forward:/product/add";
