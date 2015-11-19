@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"></c:url>">
 </head>
 <body class="container-fluid">
+<jsp:include page="header.jsp"><jsp:param value="product" name="actTab"/></jsp:include>
 	<h1>Products</h1>
 	<table class="table table-striped table-hover">
 		<tr>
@@ -21,13 +22,13 @@
 		</tr>
 		<c:forEach items="${products}" var="product">
 			<tr>
-				<td>${product.id}</td>
-				<td>${product.name}</td>
-				<td>${product.description}</td>
-				<td>${product.category}</td>
-				<td>${product.available}</td>
-				<td>${product.price}</td>
-				<td>
+				<td width="5%">${product.id}</td>
+				<td width="15%">${product.name}</td>
+				<td width="40%">${product.description}</td>
+				<td width="10%">${product.category}</td>
+				<td width="10%">${product.available}</td>
+				<td width="5%">${product.price}</td>
+				<td width="15%">
 					<a href='<c:url value="/product/${product.id}"></c:url>'><button class="btn btn-warning">Edit</button></a>
 					<a href='<c:url value="/product/${product.id}/delete"></c:url>'><button class="btn btn-danger">Delete</button></a>
 				</td>

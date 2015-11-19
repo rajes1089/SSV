@@ -9,6 +9,7 @@
 <link rel="stylesheet"  href="<c:url value="/resources/css/bootstrap.min.css"></c:url>">
 </head>
 <body class="container">
+<jsp:include page="header.jsp"><jsp:param value="product" name="actTab"/></jsp:include>
 <h1>New Product</h1>
 <sf:form class="form-horizontal" role="form" modelAttribute="product">
   <div class="form-group">

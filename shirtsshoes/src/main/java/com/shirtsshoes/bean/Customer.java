@@ -64,7 +64,7 @@ public class Customer implements Serializable {
     @Column(name = "CUST_EMAIL")
     private String email;
     
-    @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
     private Set<Order> orders = new HashSet<Order>();
 
     public Set<Order> getOrders() {
