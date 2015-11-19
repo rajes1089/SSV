@@ -11,6 +11,7 @@
       <ul class="nav navbar-nav ">
         <li class="<%=(actTab.equals("product"))?"active":""%>" ><a href='<c:url value="/product"></c:url>'>Products</a></li>
         <li class="<%=(actTab.equals("customer"))?"active":""%>" ><a href='<c:url value="/customer"></c:url>'>Customers</a></li>
+        <li class="<%=(actTab.equals("order"))?"active":""%>" ><a href='<c:url value="/order"></c:url>'>Orders</a></li>
       </ul>
      
       <ul class="nav navbar-nav navbar-right">

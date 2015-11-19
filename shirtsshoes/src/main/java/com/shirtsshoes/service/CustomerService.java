@@ -15,25 +15,25 @@ import com.shirtsshoes.dao.CustomerDao;
 public class CustomerService {
 
 	@Inject
-	private CustomerDao CustomerDao;
+	private CustomerDao customerDao;
 	
 	public List<Customer> getCustomers() {
-		return CustomerDao.getCustomers();
+		return customerDao.getCustomers();
 	}
 	
 	public Customer getCustomer(Integer pid){
-		return CustomerDao.getCustomer(pid);
+		return customerDao.getCustomer(pid);
 	}
 	
 	public void addCustomer(Customer p) {
-		CustomerDao.addCustomer(p);
+		customerDao.addCustomer(p);
 	}
 	
 	public void updateCustomer(Customer p) {
-		CustomerDao.updateCustomer(p);
+		customerDao.updateCustomer(p);
 	}
 	
 	public void deleteCustomer(Integer pid) {
-		CustomerDao.deleteCustomer(pid);
+		customerDao.deleteCustomer(pid);
 	}
 }

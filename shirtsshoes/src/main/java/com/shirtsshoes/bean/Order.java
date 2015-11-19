@@ -18,6 +18,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Rajes
@@ -25,6 +28,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "DEMO_ORDERS")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Order implements Serializable {
     
     /**

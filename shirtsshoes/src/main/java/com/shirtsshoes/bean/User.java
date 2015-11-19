@@ -14,6 +14,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
 
 /**
@@ -22,6 +25,7 @@ import org.hibernate.annotations.Type;
  */
 @Entity
 @Table(name = "DEMO_USERS")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class User implements Serializable {
     
     /**
