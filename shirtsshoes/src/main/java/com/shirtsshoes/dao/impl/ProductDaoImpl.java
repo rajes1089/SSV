@@ -23,7 +23,7 @@ public class ProductDaoImpl implements ProductDao{
 	@Override
 	public List<Product> getProducts() {
 		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery("FROM Product order by id");
+		Query q = session.createQuery("FROM Product order by id").setCacheable(true);
 		return (List<Product>)q.list();
 	}
 

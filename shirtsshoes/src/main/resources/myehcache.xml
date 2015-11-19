@@ -6,24 +6,14 @@
     <diskStore path="java.io.tmpdir/ehcache" />
  
     <defaultCache maxEntriesLocalHeap="10000" eternal="false"
-        timeToIdleSeconds="120" timeToLiveSeconds="120" diskSpoolBufferSizeMB="30"
-        maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="120"
+        timeToIdleSeconds="1200" timeToLiveSeconds="1200" diskSpoolBufferSizeMB="30"
+        maxEntriesLocalDisk="10000000" diskExpiryThreadIntervalSeconds="1200"
         memoryStoreEvictionPolicy="LRU" statistics="true">
         <persistence strategy="localTempSwap" />
     </defaultCache>
  
-    <cache name="product" maxEntriesLocalHeap="10000" eternal="false"
-        timeToIdleSeconds="5" timeToLiveSeconds="10">
-        <persistence strategy="localTempSwap" />
-    </cache>
-    
-     <cache name="customer" maxEntriesLocalHeap="10000" eternal="false"
-        timeToIdleSeconds="5" timeToLiveSeconds="10">
-        <persistence strategy="localTempSwap" />
-    </cache>
- 
     <cache name="org.hibernate.cache.internal.StandardQueryCache"
-        maxEntriesLocalHeap="5" eternal="false" timeToLiveSeconds="120">
+        maxEntriesLocalHeap="5" eternal="false" timeToLiveSeconds="1200">
         <persistence strategy="localTempSwap" />
     </cache>
  

@@ -23,7 +23,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	@Override
 	public List<Customer> getCustomers() {
 		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery("FROM Customer order by id");
+		Query q = session.createQuery("FROM Customer order by id").setCacheable(true);
 		return (List<Customer>)q.list();
 	}
 

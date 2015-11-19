@@ -30,7 +30,7 @@ import org.hibernate.annotations.Type;
  */
 @Entity
 @Table(name = "DEMO_PRODUCT_INFO")
-@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="product")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Product implements Serializable {
     
     /**
@@ -78,79 +78,6 @@ public class Product implements Serializable {
     private List<OrderItems> orderItems = new ArrayList<OrderItems>();
     
     
-    
-    @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (available ? 1231 : 1237);
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((fileName == null) ? 0 : fileName.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((lastUpdate == null) ? 0 : lastUpdate.hashCode());
-		result = prime * result + ((mimeType == null) ? 0 : mimeType.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((orderItems == null) ? 0 : orderItems.hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		if (available != other.available)
-			return false;
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (fileName == null) {
-			if (other.fileName != null)
-				return false;
-		} else if (!fileName.equals(other.fileName))
-			return false;
-		if (id != other.id)
-			return false;
-		if (lastUpdate == null) {
-			if (other.lastUpdate != null)
-				return false;
-		} else if (!lastUpdate.equals(other.lastUpdate))
-			return false;
-		if (mimeType == null) {
-			if (other.mimeType != null)
-				return false;
-		} else if (!mimeType.equals(other.mimeType))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (orderItems == null) {
-			if (other.orderItems != null)
-				return false;
-		} else if (!orderItems.equals(other.orderItems))
-			return false;
-		if (price == null) {
-			if (other.price != null)
-				return false;
-		} else if (!price.equals(other.price))
-			return false;
-		return true;
-	}
 
 	public List<OrderItems> getOrderItems() {
         return orderItems;

@@ -8,7 +8,7 @@
 <title>Customer Info</title>
 <link rel="stylesheet"  href="<c:url value="/resources/css/bootstrap.min.css"></c:url>">
 </head>
-<body class="container">
+<body class="container-fluid">
 
 <jsp:include page="header.jsp"><jsp:param value="customer" name="actTab"/></jsp:include>
 
