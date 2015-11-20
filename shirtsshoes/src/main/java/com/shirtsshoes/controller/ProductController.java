@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shirtsshoes.bean.Product;
 import com.shirtsshoes.service.ProductService;
@@ -39,6 +40,13 @@ public class ProductController {
 		model.addAttribute("products", productService.getProducts());
 		return "product-list";
 	}
+	
+	@RequestMapping("/product/search")
+	public String searchProducts(Model model,@RequestParam("productSearch") String pName){
+		model.addAttribute("products", productService.getProducts(pName));
+		return "product-list";
+	}
+	
 	
 	@RequestMapping(value="/product/add",method=RequestMethod.GET)
 	public String addNewProduct(Model model,Product product){

@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.shirtsshoes.bean.Product;
@@ -25,6 +28,14 @@ public class ProductDaoImpl implements ProductDao{
 		Session session = sessionFactory.getCurrentSession();
 		Query q = session.createQuery("FROM Product order by id").setCacheable(true);
 		return (List<Product>)q.list();
+	}
+	
+	@Override
+	public List<Product> getProducts(String name) {
+		Session session = sessionFactory.getCurrentSession();
+		Criteria cr = session.createCriteria(Product.class);
+		cr.add(Restrictions.ilike("description", "%"+name+"%")).addOrder(Order.asc("name"));
+		return (List<Product>)cr.list();
 	}
 
 	@Override

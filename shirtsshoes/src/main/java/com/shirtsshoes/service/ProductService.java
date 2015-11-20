@@ -21,6 +21,10 @@ public class ProductService {
 		return productDao.getProducts();
 	}
 	
+	public List<Product> getProducts(String name) {
+		return productDao.getProducts(name);
+	}
+	
 	public Product getProduct(Integer pid){
 		return productDao.getProduct(pid);
 	}

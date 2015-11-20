@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String actTab = request.getParameter("actTab"); %>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
+<div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Shirts And Shoes</a>
@@ -15,7 +16,16 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
+	      <li>
+	      <form class="navbar-form navbar-left" action='<c:url value="/product/search"></c:url>' role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" name="productSearch" placeholder="Search">
+	        </div>
+	        <button type="submit" class="btn btn-default">Submit</button>
+	      </form>
+	      </li>
         <li><a href="#">Sign In</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
+ </div>
 </nav>
