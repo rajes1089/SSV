@@ -30,7 +30,7 @@
 				<td width="10%">
 					${order.timeStamp}
 				</td>
-				<td width="10%">
+				<td width="15%">
 					${order.customer.firstName}&nbsp;${order.customer.lastName}
 				</td>
 				<td width="10%">
@@ -39,7 +39,7 @@
 				<td width="10%">
 					${order.user.userName}
 				</td>
-				<td width="55%">
+				<td width="50%">
 					<a href='<c:url value="/order/${order.id}"></c:url>'><button class="btn btn-warning">Edit</button></a>
 					<a href='<c:url value="/order/${order.id}/delete"></c:url>'><button class="btn btn-danger">Delete</button></a>
 				</td>

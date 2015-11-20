@@ -11,6 +11,8 @@
 <body class="container-fluid">
 <jsp:include page="header.jsp"><jsp:param value="product" name="actTab"/></jsp:include>
 <h1>New Product</h1>
+
+<sf:errors></sf:errors>
 <sf:form class="form-horizontal" role="form" modelAttribute="product">
   <div class="form-group">
     <label class="control-label col-sm-2" for="name">Name</label>

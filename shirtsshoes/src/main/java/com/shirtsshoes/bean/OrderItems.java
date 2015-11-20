@@ -14,12 +14,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  *
  * @author Rajes
  */
 @Entity
 @Table(name = "DEMO_ORDER_ITEMS")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class OrderItems implements Serializable {
     
     /**
@@ -35,7 +39,7 @@ public class OrderItems implements Serializable {
     private BigDecimal unitPrice;
     
     @Column(name = "QUANTITY")
-    private int quntity;
+    private int quantity;
 
     
     @ManyToOne
@@ -78,12 +82,12 @@ public class OrderItems implements Serializable {
         this.unitPrice = unitPrice;
     }
 
-    public int getQuntity() {
-        return quntity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuntity(int quntity) {
-        this.quntity = quntity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
 

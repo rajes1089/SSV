@@ -8,6 +8,8 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,16 @@ public class ProductController {
 
 	@Inject
 	private ProductService productService;
+	
+	
+	@InitBinder
+	public void initBinder(WebDataBinder wdb){
+		//wdb.setAllowedFields(new String[]{""});
+	}
+	
+	
+	
+	
 	
 	@RequestMapping("/product")
 	public String listProducts(Model model){

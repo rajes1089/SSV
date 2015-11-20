@@ -43,7 +43,8 @@ public class Product implements Serializable {
     private int id;
     
     @Column(name = "PRODUCT_NAME")
-    @NotNull @Size(min=5,max=20)
+    @NotNull 
+    @Size(min=5,max=20)
     private String name;
     
     @Column(name = "PRODUCT_DESCRIPTION")
