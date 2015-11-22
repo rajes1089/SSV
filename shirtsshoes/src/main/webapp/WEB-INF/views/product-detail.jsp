@@ -8,8 +8,11 @@
 <title>Product Detail</title>
 <link rel="stylesheet"  href="<c:url value="/resources/css/bootstrap.min.css"></c:url>">
 </head>
-<body><div class="container">
+<body>
+
 <jsp:include page="header.jsp"><jsp:param value="product" name="actTab"/></jsp:include>
+
+<div class="container">
 
 <h2>${product.name}</h2>
 <h3>${product.description}</h3>

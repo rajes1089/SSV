@@ -8,9 +8,11 @@
 <title>Customer Info</title>
 <link rel="stylesheet"  href="<c:url value="/resources/css/bootstrap.min.css"></c:url>">
 </head>
-<body><div class="container">
+<body>
 
 <jsp:include page="header.jsp"><jsp:param value="customer" name="actTab"/></jsp:include>
+
+<div class="container">
 
 <h3>Customer Info</h3>
 
@@ -88,5 +90,6 @@
     </div>
   </div>
 </sf:form>
-</div></body>
+</div>
+</body>
 </html>

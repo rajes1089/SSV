@@ -7,8 +7,11 @@
 <title>Orders</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"></c:url>">
 </head>
-<body><div class="container">
+<body>
+
 <jsp:include page="header.jsp"><jsp:param value="order" name="actTab"/></jsp:include>
+
+<div class="container">
 	
 	<div class="panel panel-default">
 		<div class="panel-heading">

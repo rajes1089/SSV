@@ -38,13 +38,13 @@ public class ProductController {
 	@RequestMapping("/product")
 	public String listProducts(Model model){
 		model.addAttribute("products", productService.getProducts());
-		return "product-list";
+		return "home";
 	}
 	
 	@RequestMapping("/product/search")
 	public String searchProducts(Model model,@RequestParam("productSearch") String pName){
 		model.addAttribute("products", productService.getProducts(pName));
-		return "product-list";
+		return "home";
 	}
 	
 	
