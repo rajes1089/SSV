@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Shirts And Shoes</a>
+      <a class="navbar-brand" href='<c:url value="/"></c:url>'>Shirts And Shoes</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +21,7 @@
 	        <div class="form-group">
 	          <input type="text" class="form-control" name="productSearch" placeholder="Search">
 	        </div>
-	        <button type="submit" class="btn btn-default">Submit</button>
+	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Submit</button>
 	      </form>
 	      </li>
         <li><a href="#">Sign In</a></li>

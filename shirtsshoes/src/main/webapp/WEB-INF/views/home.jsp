@@ -16,16 +16,16 @@
 <div class="row">
   
   <c:forEach items="${products}" var="product">
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	      <img src='<c:url value="/resources/img/${product.fileName}"></c:url>' alt="${product.name}">
+  	<a href="<c:url value="/product/${product.id}"></c:url>">
+	  <div class="col-sm-6 col-md-4" >
+	    <div class="thumbnail" >
+	      <img style="max-width:250px;max-height: 250px;min-width: 250px;min-height: 250px;" src='<c:url value="/resources/img/${product.fileName}"></c:url>' alt="${product.name}">
 	      <div class="caption">
 	        <h3>${product.name}</h3>
-	        <p>${product.description}</p>
-	        <p><a href="#" class="btn btn-primary" role="button">Add to Cart</a></p>
 	      </div>
 	    </div>
 	  </div>
+	  </a>
   </c:forEach>
   
 </div>

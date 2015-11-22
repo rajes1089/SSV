@@ -30,6 +30,7 @@ import org.hibernate.annotations.Type;
  */
 @Entity
 @Table(name = "DEMO_PRODUCT_INFO")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Product implements Serializable {
     
     /**
@@ -63,6 +64,7 @@ public class Product implements Serializable {
     private BigDecimal price;
     
     @Column(name = "PRODUCT_IMAGE")
+    @Transient
     private Blob image;
     
     @Column(name = "MIMETYPE")
