@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author Rajes
@@ -24,6 +26,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "DEMO_ORDER_ITEMS")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(value={"order"})
 public class OrderItems implements Serializable {
     
     /**
@@ -89,10 +92,4 @@ public class OrderItems implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
-
-    
-    
-    
-    
 }

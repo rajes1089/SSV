@@ -15,6 +15,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -36,9 +38,11 @@ public class Customer implements Serializable {
     private int id;
     
     @Column(name = "CUST_FIRST_NAME")
+    @Size(min=5)
     private String firstName;
     
     @Column(name = "CUST_LAST_NAME")
+    @NotNull
     private String lastName;
     
     @Column(name = "CUST_STREET_ADDRESS1")
@@ -68,7 +72,7 @@ public class Customer implements Serializable {
     @Column(name = "CUST_EMAIL")
     private String email;
     
-    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER)
     private Set<Order> orders = new HashSet<Order>();
     
     

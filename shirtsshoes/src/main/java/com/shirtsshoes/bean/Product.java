@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,6 +25,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Type;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author Rajes
@@ -31,6 +34,7 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "DEMO_PRODUCT_INFO")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
+@JsonIgnoreProperties(value="orderItems")
 public class Product implements Serializable {
     
     /**
@@ -76,7 +80,7 @@ public class Product implements Serializable {
     @Column(name = "IMAGE_LAST_UPDATE")
     private Date lastUpdate;
     
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product",fetch=FetchType.LAZY)
     private List<OrderItems> orderItems = new ArrayList<OrderItems>();
     
     
