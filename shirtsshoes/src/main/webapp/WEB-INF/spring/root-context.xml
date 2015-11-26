@@ -9,36 +9,9 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<context:component-scan base-package="com.shirtsshoes.dao.impl,com.shirtsshoes.service"/>
+	<context:component-scan base-package="com.shirtsshoes.dao.impl,com.shirtsshoes.service,com.shirtsshoes.dao.restclientimpl"/>
 		
-	<bean id="oracleDatasource"  class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-        <property name="username" value="kart"/>
-        <property name="password" value="app"/>
-        <property name="maxTotal" value="1"/>
-    </bean>
-    
-    
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="oracleDatasource"/>
-        <property name="packagesToScan" value="com.shirtsshoes.bean"/>
-        <property name="hibernateProperties">
-        	<props>
-        		<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
-        		<prop key="hibernate.show_sql">true</prop>
-        		<prop key="hibernate.hbm2ddl.auto">validate</prop>
-        		<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
-        		<prop key="hibernate.cache.use_second_level_cache">true</prop>
-        		<prop key="hibernate.cache.use_query_cache">true</prop>
-        		<prop key="net.sf.ehcache.configurationResourceName">/myehcache.xml</prop>
-        	</props>
-        </property>
-    </bean>
-    
-    <tx:annotation-driven />
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
     </bean>
     
 </beans>

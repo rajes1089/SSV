@@ -5,12 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.shirtsshoes.bean.Customer;
 import com.shirtsshoes.dao.CustomerDao;
 
-@Transactional
 @Service
 public class CustomerService {
 

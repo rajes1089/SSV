@@ -38,14 +38,18 @@ public class ProductController {
 	@RequestMapping("/product")
 	public String listProducts(Model model){
 		model.addAttribute("products", productService.getProducts());
-		return "home";
+		return "product-list";
 	}
+	
 	
 	@RequestMapping("/product/search")
 	public String searchProducts(Model model,@RequestParam("productSearch") String pName){
 		model.addAttribute("products", productService.getProducts(pName));
 		return "home";
 	}
+	
+	
+	
 	
 	
 	@RequestMapping(value="/product/add",method=RequestMethod.GET)
@@ -63,11 +67,18 @@ public class ProductController {
 		return "redirect:/product";
 	}
 	
+	
+	
+	
+	
 	@RequestMapping(value="/product/{id}",method=RequestMethod.GET)
 	public String editProduct(@PathVariable int id,Model model){
 		model.addAttribute("product",productService.getProduct(id));
-		return "product-detail";
+		return "product-edit";
 	}
+	
+	
+	
 	
 	@RequestMapping(value="/product/{id}",method=RequestMethod.POST)
 	public String updateProduct(Product product,BindingResult result){
@@ -75,6 +86,7 @@ public class ProductController {
 		productService.updateProduct(product);
 		return "redirect:/product";
 	}
+	
 	
 	
 	@RequestMapping("/product/{id}/delete")

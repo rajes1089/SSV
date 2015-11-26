@@ -4,17 +4,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.shirtsshoes.bean.Product;
 import com.shirtsshoes.dao.ProductDao;
 
-@Transactional
 @Service
 public class ProductService {
 
-	@Inject
+	@Inject @Qualifier("productRestDaoImpl")
 	private ProductDao productDao;
 	
 	public List<Product> getProducts() {

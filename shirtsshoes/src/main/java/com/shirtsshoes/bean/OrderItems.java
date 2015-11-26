@@ -7,26 +7,11 @@ package com.shirtsshoes.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
  * @author Rajes
  */
-@Entity
-@Table(name = "DEMO_ORDER_ITEMS")
-@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
-@JsonIgnoreProperties(value={"order"})
 public class OrderItems implements Serializable {
     
     /**
@@ -34,23 +19,15 @@ public class OrderItems implements Serializable {
 	 */
 	private static final long serialVersionUID = -6286122421694146514L;
 
-	@Id
-    @Column(name = "ORDER_ITEM_ID")
     private int id;
     
-    @Column(name = "UNIT_PRICE")
     private BigDecimal unitPrice;
     
-    @Column(name = "QUANTITY")
     private int quantity;
 
     
-    @ManyToOne
-    @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
     public Product getProduct() {

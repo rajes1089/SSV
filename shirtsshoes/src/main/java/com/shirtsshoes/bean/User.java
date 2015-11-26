@@ -9,23 +9,11 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Type;
 
 /**
  *
  * @author Rajes
  */
-@Entity
-@Table(name = "DEMO_USERS")
-@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class User implements Serializable {
     
     /**
@@ -33,33 +21,22 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -5559240845888280330L;
 
-	@Id @Column(name = "USER_ID")
     private int id;
     
-    @Column(name = "USER_NAME")
     private String userName;
     
-    @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "CREATED_ON")
     private Date createdOn;
     
-    @Column(name = "QUOTA")
     private Integer quota;
     
-    @Column(name = "PRODUCTS")
-    @Type(type ="yes_no")
     private boolean products;
     
-    @Column(name = "EXPIRES_ON")
     private Date expiresOn;
     
-    @Column(name = "ADMIN_USER")
-    @Type(type ="yes_no")
     private boolean adminUser;
     
-    @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<Order>();
 
     public List<Order> getOrders() {

@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.shirtsshoes.controller" />
+	<context:component-scan base-package="com.shirtsshoes.controller,com.mylearning.ssapi.interceptor" />
 	
 	<!-- <beans:bean id="myBeansValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" ></beans:bean> -->
 	

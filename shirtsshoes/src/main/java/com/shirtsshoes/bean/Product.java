@@ -11,30 +11,14 @@ import java.sql.Blob;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Type;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
  * @author Rajes
  */
-@Entity
-@Table(name = "DEMO_PRODUCT_INFO")
-@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
-@JsonIgnoreProperties(value="orderItems")
 public class Product implements Serializable {
     
     /**
@@ -42,45 +26,32 @@ public class Product implements Serializable {
 	 */
 	private static final long serialVersionUID = 9172758196941643622L;
 
-	@Id
-    @Column(name = "PRODUCT_ID")
     private int id;
     
-    @Column(name = "PRODUCT_NAME")
     @NotNull 
     @Size(min=5,max=20)
     private String name;
     
-    @Column(name = "PRODUCT_DESCRIPTION")
     @NotNull
     private String description;
     
-    @Column(name = "CATEGORY")
     @NotNull
     private String category;
     
-    @Column(name = "PRODUCT_AVAIL") @Type(type="yes_no")
     @NotNull
     private boolean available;
     
-    @Column(name = "LIST_PRICE")
     @NotNull
     private BigDecimal price;
     
-    @Column(name = "PRODUCT_IMAGE")
-    @Transient
     private Blob image;
     
-    @Column(name = "MIMETYPE")
     private String mimeType;
     
-    @Column(name = "FILENAME")
     private String fileName;
     
-    @Column(name = "IMAGE_LAST_UPDATE")
     private Date lastUpdate;
     
-    @OneToMany(mappedBy = "product",fetch=FetchType.LAZY)
     private List<OrderItems> orderItems = new ArrayList<OrderItems>();
     
     
