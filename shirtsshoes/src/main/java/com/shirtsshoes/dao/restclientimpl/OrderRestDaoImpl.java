@@ -29,7 +29,7 @@ public class OrderRestDaoImpl implements OrderDao {
 
 	@Override
 	public void addOrder(Order order) {
-		restTemplate.put("http://localhost:8082/ssapi/orders/add", order);
+		restTemplate.put("http://localhost:8082/ssapi/orders", order);
 	}
 
 	

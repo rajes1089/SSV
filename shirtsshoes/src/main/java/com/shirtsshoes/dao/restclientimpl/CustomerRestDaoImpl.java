@@ -31,7 +31,7 @@ public class CustomerRestDaoImpl implements CustomerDao {
 	
 	@Override
 	public void addCustomer(Customer customer) {
-		restTemplate.put("http://localhost:8082/ssapi/customers/add", customer);
+		restTemplate.put("http://localhost:8082/ssapi/customers", customer);
 	}
 
 	@Override

@@ -41,7 +41,7 @@ public class ProductRestDaoImpl implements ProductDao{
 	
 	@Override
 	public void addProduct(Product p) {
-		restTemplate.put("http://localhost:8082/ssapi/products/add", p);
+		restTemplate.put("http://localhost:8082/ssapi/products", p);
 	}
 	
 	
