@@ -173,4 +173,19 @@ public class TableDrawer {
             rows.add(row);
         }
 
-        // Specify the path where the PDF will be
+        // Specify the path where the PDF will be 
+        // Specify the path where the PDF will be saved
+        String filePath = "path/to/output.pdf";
+
+        // Generate the PDF with dynamic pages
+        tableDrawer.drawTable(filePath, columnTitles, rows);
+    }
+
+    private static Cell createCell(String text, String color, int fontSize) {
+        Cell cell = new TableDrawer().new Cell();
+        cell.text = text;
+        cell.color = color;
+        cell.fontSize = fontSize;
+        return cell;
+    }
+}
